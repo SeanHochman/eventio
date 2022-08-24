@@ -1,0 +1,43 @@
+@import '/packages/common/styles/variables.scss';
+
+.sidebarWrapper {
+  background: url('/images/gangwar.png');
+  float: left;
+  width: 400px;
+  height: 100vh;
+  background-color: $blue;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.quoteBlock {
+  position: absolute;
+  height: 20%;
+  padding: 10px 50px 148px;
+  width: 100%;
+  bottom: 0;
+  color: $white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .quote {
+    font-size: 36px;
+    font-family: PlayfairDisplay-Regular;
+    text-align: center;
+  }
+
+  rect {
+    fill: $limeGreen;
+    width: 12px;
+    border: 1px solid $limeGreen;
+    margin: 20px auto;
+  }
+
+  .quotePerson {
+    color: $grey;
+    display: flex;
+    justify-content: center;
+  }
+}

@@ -1,5 +1,6 @@
-import { HelloPageContent } from '@components/HelloPageContent';
 import { GetServerSideProps, NextPage } from 'next';
+
+import { HelloPageContent } from '@components/HelloPageContent';
 
 type Props = { page: string };
 

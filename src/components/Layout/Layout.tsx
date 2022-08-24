@@ -1,8 +1,9 @@
-import React, { FC } from 'react';
-import { Header } from '@components/Header/Header';
-
 import { NextComponentType, NextPageContext } from 'next';
+import React, { FC } from 'react';
+
+import { Sidebar } from '@components/Sidebar/Sidebar';
 import { HeadContent } from '@components/document/HeadContent/HeadContent';
+
 import styles from './Layout.module.scss';
 
 type Props = {
@@ -11,12 +12,12 @@ type Props = {
 };
 
 export const Layout: FC<Props> = ({ Component, props }) => {
-  const { page } = props;
+  const { page, hasSidebar } = props;
   return (
     <>
       <HeadContent page={page} />
-      <Header />
       <div className={styles.main}>
+        {hasSidebar && <Sidebar />}
         <Component {...props} />
       </div>
     </>
