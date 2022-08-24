@@ -1,2 +1,3 @@
-# nextjs-init
-basic next setup
+# Eventio
+
+Eventio is a place to find out about events
