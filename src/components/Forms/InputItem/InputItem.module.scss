@@ -1,0 +1,63 @@
+@import '@common/styles/variables.scss';
+
+.formItemWrapper {
+  margin: 0 0 30px;
+}
+
+.loginFormItem {
+  position: relative;
+  border-bottom: 1px solid $lightGrey;
+  padding: 8px 20px 8px 0;
+
+  input {
+    background: none;
+    outline: none;
+    border: none;
+    color: $lightGrey;
+    width: 100%;
+    font-size: 14px;
+    vertical-align: text-bottom;
+  }
+
+  input::placeholder {
+    color: $lightGrey;
+    opacity: 1;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    box-shadow: 0 0 0 30px $grey inset;
+    -webkit-box-shadow: 0 0 0 30px $grey inset;
+    -webkit-text-fill-color: $lightGrey;
+  }
+}
+
+.icon {
+  position: absolute;
+  right: 0;
+
+  &:global(.isClickable) {
+    cursor: pointer;
+  }
+
+  svg {
+    fill: $lightGrey;
+  }
+}
+
+.errorMessage {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: fit-content;
+  z-index: 99999;
+  margin-top: 5px;
+  font-size: 11px;
+  padding: 7px 10px;
+  border-radius: 3px;
+  background-color: $red;
+  color: $white;
+  font-weight: normal;
+}

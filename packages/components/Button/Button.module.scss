@@ -1,0 +1,66 @@
+@import '@common/styles/variables.scss';
+
+.btn {
+  display: inline-flex;
+  padding: 10px 14px;
+  border-radius: 5px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: bold;
+  align-items: center;
+  cursor: pointer;
+  border-style: none;
+  text-decoration: none;
+  outline: none;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  transition: background-color 0.2s;
+
+  &:global(.primary) {
+    background-color: $limeGreen;
+    color: $white;
+
+    &:hover {
+      background-color: $limeGreenHover;
+    }
+
+    :global(.isDisabled) {
+      background-color: $limeGreen;
+      color: $limeGreen;
+      opacity: 0.25;
+      pointer-events: none;
+    }
+  }
+
+  :global(.secondary) {
+    background-color: $red;
+    color: $white;
+    border: 1px solid $red;
+
+    &:hover {
+      background-color: $redHover;
+    }
+  }
+
+  &:global(.tertiary) {
+    background-color: $buttonGrey;
+    color: $greyText;
+
+    &:hover {
+      background-color: $buttonGreyHover;
+    }
+  }
+
+  &:global(.big) {
+    height: 57px;
+    padding: 0;
+    width: 240px;
+  }
+  &:global(.small) {
+    height: 32px;
+    padding: 0;
+    width: 100px;
+  }
+}

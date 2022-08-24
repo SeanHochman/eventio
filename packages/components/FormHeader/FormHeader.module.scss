@@ -1,0 +1,15 @@
+@import '@common/styles/variables.scss';
+
+.formHeaderWrapper {
+  margin-bottom: 40px;
+}
+
+.title {
+  font-size: 28px;
+  padding: 10px 0;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: $grey;
+}

@@ -1,0 +1,16 @@
+@import '@common/styles/variables.scss';
+
+.wrapper {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 14px;
+}
+
+.message {
+  color: $lightGrey;
+}
+
+.link {
+  text-transform: uppercase;
+}

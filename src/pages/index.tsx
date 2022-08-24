@@ -1,3 +1,5 @@
+import { UserEntryPage } from '@components/UserEntryPage/UserEntryPage';
+
 import type { GetServerSideProps, NextPage } from 'next';
 
 type Props = {
@@ -8,14 +10,14 @@ type Props = {
 
 const date = new Date();
 
-const Index: NextPage<Props> = ({ message }) => {
-  return <div>{message}</div>;
+const Index: NextPage<Props> = (props) => {
+  return <UserEntryPage {...props} />;
 };
 
 export const getServerSideProps: GetServerSideProps<Props> = async ({}) => {
   const props: Props = {
     message: `Hello, today is ${date.toLocaleDateString()}`,
-    page: 'Home',
+    page: 'Login',
     hasSidebar: true,
   };
   return { props };

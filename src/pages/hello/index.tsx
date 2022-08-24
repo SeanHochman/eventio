@@ -1,11 +1,11 @@
 import { GetServerSideProps, NextPage } from 'next';
 
-import { HelloPageContent } from '@components/HelloPageContent';
+import { UserEntryPage } from '@components/UserEntryPage/UserEntryPage';
 
 type Props = { page: string };
 
 const Index: NextPage<Props> = ({ page }) => {
-  return <HelloPageContent page={page} />;
+  return <UserEntryPage page={page} />;
 };
 
 export const getServerSideProps: GetServerSideProps<Props> = async ({}) => {

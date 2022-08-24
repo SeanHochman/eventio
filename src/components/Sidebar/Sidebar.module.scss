@@ -2,8 +2,8 @@
 
 .sidebarWrapper {
   background: url('/images/gangwar.png');
-  float: left;
-  width: 400px;
+  display: flex;
+  flex: 0 0 400px;
   height: 100vh;
   background-color: $blue;
   background-repeat: no-repeat;

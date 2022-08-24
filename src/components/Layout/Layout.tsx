@@ -16,9 +16,11 @@ export const Layout: FC<Props> = ({ Component, props }) => {
   return (
     <>
       <HeadContent page={page} />
-      <div className={styles.main}>
+      <div className={styles.outerWrapper}>
         {hasSidebar && <Sidebar />}
-        <Component {...props} />
+        <div className={styles.main}>
+          <Component {...props} />
+        </div>
       </div>
     </>
   );
