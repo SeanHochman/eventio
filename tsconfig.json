@@ -19,7 +19,10 @@
       "@components/*": ["components/*"],
       "@dumbComponents/*": ["../packages/components/*"],
       "@common/*": ["../packages/common/*"],
-      "@utils/*": ["utils/*"]
+      "@utils/*": ["utils/*"],
+      "@hooks/*": ["hooks/*"],
+      "@types": ["types/index.ts"],
+      "@auth/*": ["../packages/auth/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "./index.ts"],

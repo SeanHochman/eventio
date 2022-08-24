@@ -23,15 +23,6 @@
     color: $lightGrey;
     opacity: 1;
   }
-
-  input:-webkit-autofill,
-  input:-webkit-autofill:hover,
-  input:-webkit-autofill:focus,
-  input:-webkit-autofill:active {
-    box-shadow: 0 0 0 30px $grey inset;
-    -webkit-box-shadow: 0 0 0 30px $grey inset;
-    -webkit-text-fill-color: $lightGrey;
-  }
 }
 
 .icon {

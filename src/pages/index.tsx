@@ -1,26 +1,20 @@
-import { UserEntryPage } from '@components/UserEntryPage/UserEntryPage';
+import { EventioPage } from 'types/pages';
 
-import type { GetServerSideProps, NextPage } from 'next';
+import type { GetServerSideProps } from 'next';
 
-type Props = {
-  message: string;
-  page: string;
-  hasSidebar: boolean;
-};
+type Props = {};
 
-const date = new Date();
-
-const Index: NextPage<Props> = (props) => {
-  return <UserEntryPage {...props} />;
+const Index: EventioPage<Props> = (props) => {
+  return <div />;
 };
 
 export const getServerSideProps: GetServerSideProps<Props> = async ({}) => {
-  const props: Props = {
-    message: `Hello, today is ${date.toLocaleDateString()}`,
-    page: 'Login',
-    hasSidebar: true,
+  return {
+    redirect: {
+      destination: `/signIn`,
+      statusCode: 301,
+    },
   };
-  return { props };
 };
 
 export default Index;

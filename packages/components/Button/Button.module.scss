@@ -26,10 +26,10 @@
       background-color: $limeGreenHover;
     }
 
-    :global(.isDisabled) {
+    &:global(.isDisabled) {
       background-color: $limeGreen;
-      color: $limeGreen;
-      opacity: 0.25;
+      color: $white;
+      opacity: 0.5;
       pointer-events: none;
     }
   }

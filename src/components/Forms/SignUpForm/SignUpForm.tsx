@@ -1,18 +1,16 @@
 import React from 'react';
 
-import SvgEye from '@common/svgs/eye';
-import SvgEyeClosed from '@common/svgs/eyeClosed';
 import { emailValidation, passwordValidation } from '@common/types/forms';
-import { InputItem } from '@components/Forms/InputItem/InputItem';
 import { Button } from '@dumbComponents/Button/Button';
 import { FormHeader } from '@dumbComponents/FormHeader/FormHeader';
 
 import styles from '../Forms.module.scss';
+import { InputItem } from '../InputItem/InputItem';
 import { useHandleForms } from '../hooks/useHandleForms';
 
-const BUTTON_TEXT = 'Sign in';
+const BUTTON_TEXT = 'Sign up';
 
-export const SignInForm = () => {
+export const SignUpForm = () => {
   const {
     register,
     handleSubmit,
@@ -25,10 +23,28 @@ export const SignInForm = () => {
   return (
     <div className={styles.formWrapper}>
       <FormHeader
-        title="Sign in to Eventio."
+        title="Get started absolutely free."
         subtitle="Enter your details below."
       />
       <form onSubmit={handleSubmit(onSubmit)}>
+        <InputItem
+          register={register}
+          name="firstName"
+          errors={formState.errors}
+          validationOptions={emailValidation}
+          type="text"
+          errorText={'Please enter valid email'}
+          placeholder={'First name'}
+        />
+        <InputItem
+          register={register}
+          name="lastName"
+          errors={formState.errors}
+          validationOptions={emailValidation}
+          type="text"
+          errorText={'Please enter valid email'}
+          placeholder={'Last name'}
+        />
         <InputItem
           register={register}
           name="email"
@@ -48,7 +64,16 @@ export const SignInForm = () => {
           errorText={`Please enter valid password`}
           onIconClick={togglePasswordVisibility}
           placeholder={`Password`}
-          Icon={isPasswordVisible ? <SvgEyeClosed /> : <SvgEye />}
+        />
+        <InputItem
+          register={register}
+          name="repeatPassword"
+          validationOptions={passwordValidation}
+          errors={formState.errors}
+          type={isPasswordVisible ? 'text' : 'password'}
+          errorText={`passwords do not match`}
+          onIconClick={togglePasswordVisibility}
+          placeholder={`Repeat Password`}
         />
 
         <Button

@@ -1,14 +1,15 @@
 import Head from 'next/head';
 import React, { FC } from 'react';
 
-type HeadContentProps = {
-  page: string;
-};
+import { CommonProps } from '@types';
 
-export const HeadContent: FC<HeadContentProps> = ({ page }) => {
+type HeadContentProps = CommonProps;
+export const HeadContent: FC<HeadContentProps> = ({
+  meta: { pageTitle = 'page' },
+}) => {
   return (
     <Head>
-      <title>{page}</title>
+      {pageTitle && <title key="title">{pageTitle}</title>}
       <meta name="description" content="Next.js Project" />
       <link rel="icon" href="/favicon.ico" />
     </Head>

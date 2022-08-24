@@ -1,23 +1,25 @@
-import { NextComponentType, NextPageContext } from 'next';
 import React, { FC } from 'react';
 
 import { Sidebar } from '@components/Sidebar/Sidebar';
 import { HeadContent } from '@components/document/HeadContent/HeadContent';
+import { useWindowWidth } from '@hooks/useWindowWidth';
+import { CommonProps, EventioPage } from 'types/pages';
 
 import styles from './Layout.module.scss';
 
 type Props = {
-  Component: NextComponentType<NextPageContext, any, {}>;
-  props: any;
+  Component: EventioPage<CommonProps>;
+  props: CommonProps;
 };
 
 export const Layout: FC<Props> = ({ Component, props }) => {
-  const { page, hasSidebar } = props;
+  const { hasSidebar = false, meta } = props;
+  const { isDesktopWidth } = useWindowWidth();
   return (
     <>
-      <HeadContent page={page} />
+      {meta && <HeadContent meta={meta} />}
       <div className={styles.outerWrapper}>
-        {hasSidebar && <Sidebar />}
+        {hasSidebar && isDesktopWidth && <Sidebar />}
         <div className={styles.main}>
           <Component {...props} />
         </div>
