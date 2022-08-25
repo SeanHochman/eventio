@@ -1,0 +1,52 @@
+@import '@common/styles/variables.scss';
+
+.itemWrapper {
+  flex: 0 0 390px;
+  padding: 32px;
+  height: 300px;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.108696);
+  background-color: $pureWhite;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.date {
+  color: $lightGrey;
+}
+
+.title {
+  > div:first-of-type {
+    font-size: 22px;
+  }
+  > div:last-of-type {
+    padding: 3px 0;
+    color: $grey;
+  }
+}
+
+.attendees {
+  display: flex;
+  align-items: center;
+
+  > svg {
+    margin-right: 10px;
+  }
+}
+
+.description {
+  height: 100px;
+  padding: 20px 0;
+  color: $grey;
+  text-overflow: ellipsis;
+}
+
+.foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: $grey;
+  bottom: 20px;
+  width: 100%;
+}

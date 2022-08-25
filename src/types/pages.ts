@@ -10,9 +10,11 @@ export type CommonProps = {
 export enum PageEnums {
   SIGNIN = 'signIn',
   SIGNUP = 'signUp',
+  EVENTS = 'events',
 }
 
 export enum PageTitleEnums {
   SIGNIN = 'Sign In',
   SIGNUP = 'Sign Up',
+  EVENTS = 'Events',
 }

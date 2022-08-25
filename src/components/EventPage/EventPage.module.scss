@@ -1,0 +1,23 @@
+@import '@common/styles/variables.scss';
+
+.wrapper {
+  margin: 80px;
+  width: 100%;
+}
+
+.navBar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.listOptions {
+  padding: 10px 20px;
+}
+
+.eventsWrapper {
+  width: 100%;
+  margin-top: 20px;
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}

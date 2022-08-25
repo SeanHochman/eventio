@@ -5,7 +5,7 @@ export enum LocalStorageKeys {
   accessToken = 'eventioAccessToken',
 }
 
-const endpointUrl =
+const emailAuthServerUrl =
   'https://private-anon-94c36099ca-strvtestprojectv2.apiary-proxy.com/auth/native';
 
 export const storeTokens = (headers: any) => {
@@ -29,18 +29,17 @@ export const login = async ({
   const body = { email, password };
 
   const headers = new Headers();
-  headers.append('Cache-Control', 'no-store');
   headers.append('Content-Type', 'application/json');
   headers.append('APIKey', apiKey);
 
-  const res = await fetch(endpointUrl, {
-    headers,
+  const res = await fetch(emailAuthServerUrl, {
     method: 'POST',
+    headers,
     body: JSON.stringify(body),
   });
 
   if (res.status === 200 && res) {
-    console.log('winner winner', res);
+    console.log('res headers', res.headers.get('refresh-token'));
     const bla = await res.json();
     console.log(bla);
 

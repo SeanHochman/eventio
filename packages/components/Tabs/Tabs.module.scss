@@ -1,0 +1,26 @@
+@import '@common/styles/variables.scss';
+
+.wrapper {
+  padding: 10px 0;
+}
+
+.tab {
+  padding: 20px;
+  color: $grey;
+  text-transform: uppercase;
+  font-size: 12px;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:first-of-type {
+    padding-left: 0;
+  }
+
+  &:last-of-type {
+    padding-right: 0;
+  }
+
+  &.isActive {
+    color: $black;
+  }
+}

@@ -23,6 +23,15 @@
     color: $lightGrey;
     opacity: 1;
   }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    box-shadow: 0 0 0 30px $white inset;
+    -webkit-text-fill-color: $black;
+    caret-color: $black;
+  }
 }
 
 .icon {
@@ -43,12 +52,9 @@
   left: 0;
   top: 100%;
   width: fit-content;
-  z-index: 99999;
-  margin-top: 5px;
+  z-index: 999;
+  margin-top: 0;
   font-size: 11px;
-  padding: 7px 10px;
-  border-radius: 3px;
-  background-color: $red;
-  color: $white;
-  font-weight: normal;
+  padding: 7px 0;
+  color: $red;
 }
