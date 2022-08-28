@@ -1,6 +1,6 @@
 # Eventio
 
-Eventio is a place to find out about events
+Eventio is a place to find out about events 
 
 ## Description
 
@@ -15,13 +15,13 @@ There are still many bugs with this page, but we are working hard to fix them as
 ## TODO:
 
 - Implement missing pages (ie. profile, edit event)
-- Fix error handling on forms
-- Fix hydration issues
+- Fix error handling on forms, add stricter/more descriptive validation
+- Fix hydration issues (I think because ssr does not have access to user info)
 - Create enums or dictionaries for all text and vars
-- Fix issues with ssr
 - Add mobile views/styles
 - Implement error pages
 - Get rid of any 'any' types
+- Add breakpoints, padding, margins, fonts to scss variables
 
 ## About Blocks
 
