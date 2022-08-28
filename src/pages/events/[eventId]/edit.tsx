@@ -7,7 +7,7 @@ import { EventItemType } from '@dumbComponents/EventItem/EventItem';
 import { Loader } from '@dumbComponents/Loader/Loader';
 import { TopNav } from '@dumbComponents/TopNav/TopNav';
 import { UserMenu } from '@dumbComponents/UserMenu/UserMenu';
-import { useGetSingleEvent, useAttendEvent } from '@hooks/fetchers/useEvents';
+import { useGetSingleEvent, useAttendEvent } from '@hooks/useEvents';
 import { CommonProps, EventioPage, PageEnums, PageTitleEnums } from '@types';
 import { getEvent } from '@utils/events/api';
 import { parseEvent } from '@utils/events/parsers';

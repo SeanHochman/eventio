@@ -1,49 +1,51 @@
 .outerWrapper {
-  position: relative;
   display: flex;
-}
-.main {
   position: relative;
-  margin: 40px;
+}
+
+.main {
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
+  margin: 40px;
+  position: relative;
   width: 100%;
 }
 
 .cornerContent {
   position: absolute;
-  top: 0;
   right: 0;
+  top: 0;
 }
 
 .innerContent {
-  margin-top: 100px;
-  max-width: 1200px;
-  width: 100%;
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
+  margin-top: 100px;
+  max-width: 1200px;
   position: relative;
+  width: 100%;
 }
 
 .topMiddleLink {
-  position: absolute;
+  align-items: center;
+  display: flex;
+  font-size: 14px;
+  height: 40px;
   left: calc(50% - 75px);
+  position: absolute;
   top: 0;
   width: 150px;
-  height: 40px;
-  font-size: 14px;
-  display: flex;
-  align-items: center;
+
   svg {
-    width: 20px;
     margin-right: 10px;
+    width: 20px;
   }
 }
 
 .createButtonWrapper {
-  position: absolute;
   bottom: 40px;
+  position: absolute;
   right: 40px;
 }

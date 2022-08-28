@@ -1,10 +1,10 @@
 @import '@common/styles/variables.scss';
 
 .formWrapper {
-  width: 480px;
-  padding: 10px;
   background-color: $pureWhite;
+  padding: 10px;
   padding: 40px;
+  width: 480px;
 }
 
 .submit {
@@ -12,7 +12,7 @@
 }
 
 .buttonWrapper {
+  align-items: flex-end;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
 }

@@ -1,0 +1,65 @@
+{
+  "extends": "stylelint-config-sass-guidelines",
+  "plugins": ["stylelint-order", "stylelint-scss"],
+  "rules": {
+    "selector-no-qualifying-type": null,
+    "selector-class-pattern": null,
+    "scss/dollar-variable-pattern": null,
+    "scss/at-import-partial-extension-blacklist": null,
+    "scss/at-mixin-pattern": null,
+    "selector-max-id": 3,
+    "max-nesting-depth": 5,
+    "selector-max-compound-selectors": 5,
+    "order/order": [
+      ["custom-properties", "declarations"],
+      {
+        "disableFix": true
+      }
+    ],
+    "rule-empty-line-before": [
+      "always",
+      {
+        "severity": "warning"
+      }
+    ],
+    "function-parentheses-space-inside": [
+      "never",
+      {
+        "severity": "warning"
+      }
+    ],
+    "property-no-vendor-prefix": null,
+    "value-no-vendor-prefix": null,
+    "order/properties-alphabetical-order": [
+      true,
+      {
+        "severity": "warning",
+        "disableFix": true
+      }
+    ],
+    "scss/selector-no-redundant-nesting-selector": [
+      true,
+      {
+        "severity": "warning"
+      }
+    ],
+    "declaration-property-value-disallowed-list": [
+      {
+        "aspect-ratio": ["//"],
+        "background-clip": ["text"],
+        "overflow": ["overlay"]
+      },
+      {
+        "severity": "warning",
+        "disableFix": true
+      }
+    ],
+    "property-disallowed-list": [
+      [],
+      {
+        "severity": "warning",
+        "disableFix": true
+      }
+    ]
+  }
+}

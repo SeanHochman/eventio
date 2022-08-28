@@ -1,23 +1,23 @@
 @import '@common/styles/variables.scss';
 
 .outerWrapper {
+  height: 150px;
   overflow: hidden;
   position: relative;
-  height: 150px;
 }
 
 .wrapper {
-  position: absolute;
   background-color: $pureWhite;
-  width: 100%;
   border-radius: 5px;
-  margin-top: 10px;
-  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.108696);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.108696);
   color: $darkGreyText;
   font-size: 14px;
+  margin-top: 10px;
   overflow: hidden;
+  position: absolute;
   top: -150px;
   transition: top 0.3s ease-in;
+  width: 100%;
   z-index: 999;
 
   &:global(.isOpen) {
@@ -26,9 +26,9 @@
 }
 
 .menuItem {
-  padding: 10px;
   border-bottom: 1px solid $lightGrey;
   cursor: pointer;
+  padding: 10px;
 
   a {
     display: block;

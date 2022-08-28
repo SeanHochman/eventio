@@ -45,6 +45,7 @@ export const Layout: FC<Props> = ({ Component, props }) => {
             </div>
           )}
 
+          {/* TODO: maybe split this into a component */}
           {Component.Blocks?.CornerContent && (
             <div className={styles.cornerContent}>
               {shouldRenderSignIn && (

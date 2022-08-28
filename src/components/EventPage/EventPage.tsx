@@ -5,7 +5,7 @@ import { EventItem, EventItemType } from '@dumbComponents/EventItem/EventItem';
 import { Loader } from '@dumbComponents/Loader/Loader';
 import { NoEventsMessage } from '@dumbComponents/NoEventsMessage/NoEventsMessage';
 import { Tabs } from '@dumbComponents/Tabs/Tabs';
-import { useAttendEvent } from '@hooks/fetchers/useEvents';
+import { useAttendEvent } from '@hooks/useEvents';
 
 import styles from './EventPage.module.scss';
 

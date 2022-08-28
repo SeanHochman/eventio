@@ -5,7 +5,7 @@ import { EventPage } from '@components/EventPage/EventPage';
 import { Modal } from '@components/Modal/Modal';
 import { CreateButton } from '@dumbComponents/CreateButton/CreateButton';
 import { UserMenu } from '@dumbComponents/UserMenu/UserMenu';
-import { useGetAllEvents } from '@hooks/fetchers/useEvents';
+import { useGetAllEvents } from '@hooks/useEvents';
 import {
   APIEventType,
   CommonProps,

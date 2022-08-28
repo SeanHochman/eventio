@@ -9,7 +9,9 @@
     "lint": "next lint",
     "clean": "rm -rf .next",
     "eslint": "eslint \"{src,packages}/**/*.{js,ts,tsx}\"",
-    "eslint:fix": "eslint \"{src,packages}/**/*.{js,ts,tsx}\" --fix"
+    "eslint:fix": "eslint \"{src,packages}/**/*.{js,ts,tsx}\" --fix",
+    "stylelint": "npx stylelint \"**/*.scss\"",
+    "stylelint:fix": "npx stylelint \"**/*.scss\" --fix"
   },
   "dependencies": {
     "@next/eslint-plugin-next": "^12.2.5",

@@ -5,18 +5,18 @@
 }
 
 .loginFormItem {
-  position: relative;
   border-bottom: 1px solid $lightGrey;
   padding: 8px 20px 8px 0;
+  position: relative;
 
   input {
     background: none;
-    outline: none;
     border: none;
     color: $lightGrey;
-    width: 100%;
     font-size: 14px;
+    outline: none;
     vertical-align: text-bottom;
+    width: 100%;
   }
 
   input::placeholder {
@@ -29,8 +29,8 @@
   input:-webkit-autofill:focus,
   input:-webkit-autofill:active {
     box-shadow: 0 0 0 30px $white inset;
-    -webkit-text-fill-color: $black;
     caret-color: $black;
+    -webkit-text-fill-color: $black;
   }
 
   input[type='date']::-webkit-calendar-picker-indicator,
@@ -56,13 +56,13 @@
 }
 
 .errorMessage {
-  position: absolute;
+  color: $red;
+  font-size: 11px;
   left: 0;
+  margin-top: 0;
+  padding: 7px 0;
+  position: absolute;
   top: 100%;
   width: fit-content;
   z-index: 999;
-  margin-top: 0;
-  font-size: 11px;
-  padding: 7px 0;
-  color: $red;
 }

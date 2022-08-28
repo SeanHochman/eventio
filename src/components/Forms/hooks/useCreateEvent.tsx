@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 
 import { useUi } from '@common/context/UiContext/utils';
 import { FormValues } from '@common/types/forms';
-import { useGetAllEvents } from '@hooks/fetchers/useEvents';
+import { useGetAllEvents } from '@hooks/useEvents';
 import { APIEventType } from '@types';
 import { createEvent, getAllEvents } from '@utils/events/api';
 import { parseEvent } from '@utils/events/parsers';

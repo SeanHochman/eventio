@@ -3,9 +3,9 @@
 
 html,
 body {
-  padding: 0;
-  margin: 0;
   font-family: $primaryFontFamily;
+  margin: 0;
+  padding: 0;
 }
 
 a {
@@ -18,11 +18,13 @@ a {
 }
 
 @media (prefers-color-scheme: dark) {
+
   html {
     color-scheme: dark;
   }
+
   body {
-    color: $black;
     background: $white;
+    color: $black;
   }
 }

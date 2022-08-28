@@ -15,7 +15,7 @@ import {
 
 type Props = { children: any; authUrl: string; baseUrl: string };
 
-export const AuthProvider: FC<Props> = ({ children, authUrl, baseUrl }) => {
+export const AuthProvider: FC<Props> = ({ children, baseUrl }) => {
   const { push } = useRouter();
   const [accessToken, setAccessToken] = useState<string | undefined>(
     getStoredTokens().accessToken || undefined
@@ -41,15 +41,17 @@ export const AuthProvider: FC<Props> = ({ children, authUrl, baseUrl }) => {
     push('/sign-in');
   }, [push]);
 
+  // TODO: fix getting refresh token after 1st one expires
+  // log user out if both tokens are expired
   const validateAccessToken = useCallback(() => {
-    refreshAccessToken(authUrl).then(({ status }) => {
+    refreshAccessToken(baseUrl).then(({ status }) => {
       if (status === 'successTokenRefresh') {
         const user = getLocalStorage(LocalStorageKeys.user);
         if (user) setUserInfo(JSON.parse(user));
         setIsLoggedIn(true);
       }
     });
-  }, [authUrl]);
+  }, [baseUrl]);
 
   // On Mount or on access token change (in case of registration)
   useEffect(validateAccessToken, [accessToken, validateAccessToken]);

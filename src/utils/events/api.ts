@@ -1,11 +1,17 @@
+import getConfig from 'next/config';
+
+import { getHeaders } from '@auth/api';
 import { getStoredTokens } from '@auth/utils';
-import { getHeaders } from '@utils/common/api';
+
+const { publicRuntimeConfig } = getConfig();
+
+const { PUBLIC_DOMAIN } = publicRuntimeConfig;
 
 export const EVENTS_URL =
   'https://private-anon-94c36099ca-strvtestprojectv2.apiary-proxy.com/events';
 
 export const getAllEvents = async () => {
-  const headers = await getHeaders();
+  const headers = await getHeaders(PUBLIC_DOMAIN);
   return await fetch(EVENTS_URL, {
     method: 'GET',
     headers,
@@ -13,7 +19,7 @@ export const getAllEvents = async () => {
 };
 
 export const getEvent = async (eventId: string) => {
-  const headers = await getHeaders();
+  const headers = await getHeaders(PUBLIC_DOMAIN);
   return await fetch(`${EVENTS_URL}/${eventId}`, {
     method: 'GET',
     headers,
@@ -27,7 +33,7 @@ export const joinOrLeaveEvent = async ({
   eventId: string;
   type: 'join' | 'leave';
 }) => {
-  const headers = await getHeaders();
+  const headers = await getHeaders(PUBLIC_DOMAIN);
   const accessToken = getStoredTokens().accessToken;
   if (accessToken) {
     headers.set('Authorization', accessToken);
@@ -40,7 +46,7 @@ export const joinOrLeaveEvent = async ({
 };
 
 export const deleteEvent = async ({ eventId }: { eventId: string }) => {
-  const headers = await getHeaders();
+  const headers = await getHeaders(PUBLIC_DOMAIN);
   const accessToken = getStoredTokens().accessToken;
   if (accessToken) {
     headers.set('Authorization', accessToken);
@@ -68,7 +74,7 @@ export const createEvent = async ({
   onSuccess: (response: any) => void;
   onError: (response: any) => void;
 }) => {
-  return await getHeaders().then(async (headers) => {
+  return await getHeaders(PUBLIC_DOMAIN).then(async (headers) => {
     const accessToken = getStoredTokens().accessToken;
 
     if (accessToken) {

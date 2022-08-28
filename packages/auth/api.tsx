@@ -1,6 +1,8 @@
 import { setLocalStorage } from '@common/utils/localStorage';
 import { parseUser } from '@utils/user/parsers';
 
+import { getApiKey } from './utils';
+
 export enum LocalStorageKeys {
   refreshToken = 'eventioRefreshToken',
   accessToken = 'eventioAccessToken',
@@ -15,6 +17,14 @@ export type APINewUserType = {
 };
 
 const authServerUrl = 'https://testproject-api-v2.strv.com';
+
+export const getHeaders = async (domain: string) => {
+  const { key } = await getApiKey(domain);
+  const headers = new Headers();
+  headers.append('Content-Type', 'application/json');
+  headers.append('APIKey', key || '');
+  return headers;
+};
 
 export const storeTokens = () => {
   setLocalStorage(LocalStorageKeys.accessToken, '');

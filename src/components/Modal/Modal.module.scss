@@ -1,22 +1,23 @@
 @import '@common/styles/variables.scss';
 
 .wrapper {
-  position: fixed;
-  left: 0;
-  right: 0;
+  align-items: center;
+  background-color: $white;
   bottom: 0;
-  top: 0;
   display: flex;
   justify-content: center;
-  align-items: center;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
   z-index: 99999;
-  background-color: $white;
 }
+
 .close {
-  position: absolute;
-  top: 40px;
-  right: 40px;
-  font-size: 14px;
   color: $charcoal;
   cursor: pointer;
+  font-size: 14px;
+  position: absolute;
+  right: 40px;
+  top: 40px;
 }
