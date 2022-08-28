@@ -4,6 +4,7 @@ import SvgArrowLeft from '@common/svgs/arrowLeft';
 import { EventPage } from '@components/EventPage/EventPage';
 import { Modal } from '@components/Modal/Modal';
 import { CreateButton } from '@dumbComponents/CreateButton/CreateButton';
+import { LoginOrSignupLink } from '@dumbComponents/LoginOrSignupLink/LoginOrSignupLink';
 import { UserMenu } from '@dumbComponents/UserMenu/UserMenu';
 import { useGetAllEvents } from '@hooks/useEvents';
 import {
@@ -53,6 +54,10 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
 };
 
 Index.Icons = { NavIcon: SvgArrowLeft };
-Index.Blocks = { Modal, CreateButton, CornerContent: UserMenu };
+Index.Blocks = {
+  Modal,
+  CreateButton,
+  CornerContent: { UserMenu, LoginOrSignupLink },
+};
 
 export default Index;

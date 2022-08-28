@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 
+import { useAuth } from '@auth/hooks';
 import { eventFilterTabs } from '@common/types/common';
 import { EventItem, EventItemType } from '@dumbComponents/EventItem/EventItem';
 import { Loader } from '@dumbComponents/Loader/Loader';
@@ -22,6 +23,7 @@ export const EventPage: FC<Props> = ({
   isLoading,
   page,
 }) => {
+  const { isLoggedIn } = useAuth();
   return (
     <div className={styles.wrapper}>
       <div className={styles.navBar}>
@@ -39,6 +41,7 @@ export const EventPage: FC<Props> = ({
               event={event}
               useAttendEvent={useAttendEvent}
               page={page}
+              isLoggedIn={isLoggedIn}
             />
           ))}
         </div>

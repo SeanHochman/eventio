@@ -5,6 +5,7 @@ import { SingleEventContent } from '@components/SingleEventContent/SingleEventCo
 import { CreateButton } from '@dumbComponents/CreateButton/CreateButton';
 import { EventItemType } from '@dumbComponents/EventItem/EventItem';
 import { Loader } from '@dumbComponents/Loader/Loader';
+import { LoginOrSignupLink } from '@dumbComponents/LoginOrSignupLink/LoginOrSignupLink';
 import { TopNav } from '@dumbComponents/TopNav/TopNav';
 import { UserMenu } from '@dumbComponents/UserMenu/UserMenu';
 import { useGetSingleEvent, useAttendEvent } from '@hooks/useEvents';
@@ -72,7 +73,7 @@ Index.Blocks = {
   Modal,
   CreateButton,
   TopNavigation: TopNav,
-  CornerContent: UserMenu,
+  CornerContent: { UserMenu, LoginOrSignupLink },
 };
 
 export default Index;

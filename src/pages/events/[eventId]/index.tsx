@@ -5,6 +5,7 @@ import { SingleEventContent } from '@components/SingleEventContent/SingleEventCo
 import { CreateButton } from '@dumbComponents/CreateButton/CreateButton';
 import { EventItemType } from '@dumbComponents/EventItem/EventItem';
 import { Loader } from '@dumbComponents/Loader/Loader';
+import { LoginOrSignupLink } from '@dumbComponents/LoginOrSignupLink/LoginOrSignupLink';
 import { TopNav } from '@dumbComponents/TopNav/TopNav';
 import { UserMenu } from '@dumbComponents/UserMenu/UserMenu';
 import { useAttendEvent, useGetSingleEvent } from '@hooks/useEvents';
@@ -12,7 +13,11 @@ import { CommonProps, EventioPage, PageEnums, PageTitleEnums } from '@types';
 import { getEvent } from '@utils/events/api';
 import { parseEvent } from '@utils/events/parsers';
 
-type Props = CommonProps & { initialEvent: EventItemType; eventId: string };
+type Props = CommonProps & {
+  initialEvent: EventItemType;
+  eventId: string;
+  isEditPage?: boolean;
+};
 
 const Index: EventioPage<Props> = ({
   meta: { page },
@@ -37,7 +42,6 @@ const Index: EventioPage<Props> = ({
           handleJoinEvent={handleJoinEvent}
           handleLeaveEvent={handleLeaveEvent}
           handleDeleteEvent={handleDeleteEvent}
-          isEditPage
         />
       )}
     </>
@@ -72,7 +76,7 @@ Index.Blocks = {
   Modal,
   CreateButton,
   TopNavigation: TopNav,
-  CornerContent: UserMenu,
+  CornerContent: { UserMenu, LoginOrSignupLink },
 };
 
 export default Index;

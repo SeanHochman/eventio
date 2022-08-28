@@ -15,7 +15,7 @@ type Props = {
 };
 
 export const Layout: FC<Props> = ({ Component, props }) => {
-  const { userInfo } = useAuth();
+  const { userInfo, isLoggedIn } = useAuth();
   const { currentModal } = useUi();
 
   const { meta, navLinks } = props;
@@ -48,19 +48,21 @@ export const Layout: FC<Props> = ({ Component, props }) => {
           {/* TODO: maybe split this into a component */}
           {Component.Blocks?.CornerContent && (
             <div className={styles.cornerContent}>
-              {shouldRenderSignIn && (
-                <Component.Blocks.CornerContent
-                  message={loginOrSignUpInfo?.message}
-                  href={loginOrSignUpInfo?.link}
-                  linkText={loginOrSignUpInfo?.linkText}
-                />
-              )}
-              {shouldRenderUserMenu && (
-                <Component.Blocks.CornerContent
-                  userInfo={userInfo}
-                  menuItems={menuItems}
-                />
-              )}
+              {Component.Blocks?.CornerContent?.LoginOrSignupLink &&
+                shouldRenderSignIn && (
+                  <Component.Blocks.CornerContent.LoginOrSignupLink
+                    message={loginOrSignUpInfo?.message}
+                    href={loginOrSignUpInfo?.link}
+                    linkText={loginOrSignUpInfo?.linkText}
+                  />
+                )}
+              {Component.Blocks?.CornerContent?.UserMenu &&
+                shouldRenderUserMenu && (
+                  <Component.Blocks.CornerContent.UserMenu
+                    userInfo={userInfo}
+                    menuItems={menuItems}
+                  />
+                )}
             </div>
           )}
           <div className={styles.innerContent}>
@@ -68,7 +70,7 @@ export const Layout: FC<Props> = ({ Component, props }) => {
           </div>
         </div>
       </div>
-      {Component.Blocks?.CreateButton && (
+      {Component.Blocks?.CreateButton && isLoggedIn && (
         <div className={styles.createButtonWrapper}>
           <Component.Blocks.CreateButton
             openCreateModal={handleSetCreateEventModal}

@@ -23,7 +23,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
 
 Index.Blocks = {
   Sidebar,
-  CornerContent: LoginOrSignupLink,
+  CornerContent: { LoginOrSignupLink },
 };
 
 export default Index;

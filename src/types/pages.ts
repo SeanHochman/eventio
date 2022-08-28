@@ -10,7 +10,10 @@ export type EventioPage<T extends {}> = NextPage<T> & {
     Sidebar?: any;
     CreateButton?: any;
     TopNavigation?: any;
-    CornerContent?: any;
+    CornerContent?: {
+      UserMenu?: any;
+      LoginOrSignupLink?: any;
+    };
   };
 };
 

@@ -34,7 +34,7 @@ export const Info: FC<Props> = ({
           {event.attendees}
         </div>
         <Button
-          type={isJoined ? 'secondary' : 'primary'}
+          type={isJoined ? 'tertiary' : 'primary'}
           size="small"
           text={isJoined ? 'Leave' : 'Join'}
           isDisabled={!handleJoinEvent}

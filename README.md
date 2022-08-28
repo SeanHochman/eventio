@@ -21,4 +21,8 @@ There are still many bugs with this page, but we are working hard to fix them as
 - Fix issues with ssr
 - Add mobile views/styles
 - Implement error pages
-- Fix sign in / sign up button sometimes not showing
+- Get rid of any 'any' types
+
+## About Blocks
+
+    Blocks are a way of rendering our layout without the need for too much conditional rendering of compoents. We have regions of the layout that can be populated with specific components that are added to the Component returned by next js. This way, if we want only a specific component in a region, it must be added to the Component in order to show, and you wont get accidental rendering of components you dont want shown on that page.

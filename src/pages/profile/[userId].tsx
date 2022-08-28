@@ -4,6 +4,7 @@ import { useAuth } from '@auth/hooks';
 import { Modal } from '@components/Modal/Modal';
 import { ProfilePage } from '@components/ProfilePage/ProfilePage';
 import { CreateButton } from '@dumbComponents/CreateButton/CreateButton';
+import { LoginOrSignupLink } from '@dumbComponents/LoginOrSignupLink/LoginOrSignupLink';
 import { TopNav } from '@dumbComponents/TopNav/TopNav';
 import { UserMenu } from '@dumbComponents/UserMenu/UserMenu';
 import {
@@ -52,7 +53,7 @@ Index.Blocks = {
   Modal,
   CreateButton,
   TopNavigation: TopNav,
-  CornerContent: UserMenu,
+  CornerContent: { UserMenu, LoginOrSignupLink },
 };
 
 export default Index;

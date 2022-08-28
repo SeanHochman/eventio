@@ -23,8 +23,9 @@ export const SingleEventContent: FC<Props> = ({
   handleJoinEvent,
   handleLeaveEvent,
   handleDeleteEvent,
-  isEditPage,
+  isEditPage = false,
 }) => {
+  // TODO: make enums or vars for all text
   return (
     <div className={styles.outerWrapper}>
       <div className={styles.top}>
@@ -37,15 +38,15 @@ export const SingleEventContent: FC<Props> = ({
         )}
       </div>
       <div className={styles.wrapper}>
-        {isEditPage ? (
-          <Edit event={event} handleDeleteEvent={handleDeleteEvent} />
-        ) : (
+        {!isEditPage ? (
           <Info
             event={event}
             isJoined={isJoined}
             handleJoinEvent={handleJoinEvent}
             handleLeaveEvent={handleLeaveEvent}
           />
+        ) : (
+          <Edit event={event} handleDeleteEvent={handleDeleteEvent} />
         )}
         <Attendees attendeeList={event.attendeeList} />
       </div>

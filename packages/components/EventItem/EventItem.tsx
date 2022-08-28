@@ -23,9 +23,15 @@ type Props = {
   event: EventItemType;
   useAttendEvent: any;
   page: string;
+  isLoggedIn: boolean;
 };
 
-export const EventItem: FC<Props> = ({ event, useAttendEvent, page }) => {
+export const EventItem: FC<Props> = ({
+  event,
+  useAttendEvent,
+  page,
+  isLoggedIn,
+}) => {
   const {
     date,
     id,
@@ -41,7 +47,7 @@ export const EventItem: FC<Props> = ({ event, useAttendEvent, page }) => {
 
   const buttonInfo = useMemo(() => {
     if (isUserEvent)
-      return { type: 'secondary', text: 'edit', href: `/events/${id}/edit` };
+      return { type: 'secondary', text: 'edit', href: `/events/edit/${id}` };
     if (isJoined)
       return { type: 'tertiary', text: 'Leave', onClick: handleLeaveEvent };
     if (!isJoined)
@@ -72,7 +78,7 @@ export const EventItem: FC<Props> = ({ event, useAttendEvent, page }) => {
             type={buttonInfo?.type}
             size="small"
             text={buttonInfo?.text || ''}
-            isDisabled={!handleJoinEvent}
+            isDisabled={!handleJoinEvent || !isLoggedIn}
           ></Button>
         </Link>
       ) : (
@@ -81,7 +87,7 @@ export const EventItem: FC<Props> = ({ event, useAttendEvent, page }) => {
           type={buttonInfo?.type}
           size="small"
           text={buttonInfo?.text || ''}
-          isDisabled={!handleJoinEvent}
+          isDisabled={!handleJoinEvent || !isLoggedIn}
           onClick={buttonInfo?.onClick}
         />
       )}

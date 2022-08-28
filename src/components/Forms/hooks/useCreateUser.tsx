@@ -25,8 +25,6 @@ export const useCreateUser = () => {
 
   const onCreateUserSuccess = useCallback(
     ({ user }: { user: UserType }) => {
-      console.log('success', user);
-
       setIsLoggedIn(true);
       setUserInfo(user);
       push('/events');
@@ -36,7 +34,6 @@ export const useCreateUser = () => {
 
   const onCreateUserError = useCallback(
     (res: any) => {
-      console.log('create error', res);
       setAccessToken(undefined);
       setError('email', { message: 'login failed' });
     },

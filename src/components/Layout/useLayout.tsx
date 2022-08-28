@@ -22,22 +22,19 @@ export const useLayout = ({
   }, [setCurrentModal]);
 
   const loginOrSignUpInfo = useMemo(() => {
-    if (page === PageEnums.SIGNIN || page === PageEnums.SIGNUP) {
-      if (page === PageEnums.SIGNIN) {
-        return {
-          message: "Don't have an account? ",
-          link: `/sign-up`,
-          linkText: PageTitleEnums.SIGNUP,
-        };
-      } else if (page === PageEnums.SIGNUP) {
-        return {
-          message: 'Already have an account?',
-          link: `/sign-in`,
-          linkText: PageTitleEnums.SIGNIN,
-        };
-      }
+    if (page === PageEnums.SIGNIN) {
+      return {
+        message: "Don't have an account? ",
+        link: `/sign-up`,
+        linkText: PageTitleEnums.SIGNUP,
+      };
+    } else {
+      return {
+        message: 'Already have an account?',
+        link: `/sign-in`,
+        linkText: PageTitleEnums.SIGNIN,
+      };
     }
-    return;
   }, [page]);
 
   const menuItems = useMemo(() => {
@@ -55,7 +52,7 @@ export const useLayout = ({
     return navLinks?.map((item) => ({ ...item, icon: SvgArrowLeft }));
   }, [navLinks]);
 
-  const shouldRenderUserMenu = isLoggedIn && userInfo && !loginOrSignUpInfo;
+  const shouldRenderUserMenu = isLoggedIn && userInfo;
   const shouldRenderSignIn = loginOrSignUpInfo && !isLoggedIn;
 
   return {
