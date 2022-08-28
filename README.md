@@ -22,6 +22,8 @@ There are still many bugs with this page, but we are working hard to fix them as
 - Implement error pages
 - Get rid of any 'any' types
 - Add breakpoints, padding, margins, fonts to scss variables
+- reroute users to events page from signin, signup, or landing page if they are already logged in
+- improve auth functionality
 
 ## About Blocks
 
