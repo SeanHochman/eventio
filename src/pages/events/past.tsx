@@ -1,16 +1,17 @@
 import { GetServerSideProps } from 'next';
 
+import SvgArrowLeft from '@common/svgs/arrowLeft';
 import { EventPage } from '@components/EventPage/EventPage';
 import { Modal } from '@components/Modal/Modal';
 import { CreateButton } from '@dumbComponents/CreateButton/CreateButton';
 import { UserMenu } from '@dumbComponents/UserMenu/UserMenu';
 import { useGetAllEvents } from '@hooks/useEvents';
 import {
+  APIEventType,
   CommonProps,
   EventioPage,
   PageEnums,
   PageTitleEnums,
-  APIEventType,
 } from '@types';
 import { getAllEvents } from '@utils/events/api';
 
@@ -53,6 +54,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
   return { props };
 };
 
+Index.Icons = { NavIcon: SvgArrowLeft };
 Index.Blocks = { Modal, CreateButton, CornerContent: UserMenu };
 
 export default Index;

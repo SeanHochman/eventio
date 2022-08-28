@@ -1,5 +1,6 @@
 import { GetServerSideProps } from 'next';
 
+import SvgArrowLeft from '@common/svgs/arrowLeft';
 import { EventPage } from '@components/EventPage/EventPage';
 import { Modal } from '@components/Modal/Modal';
 import { CreateButton } from '@dumbComponents/CreateButton/CreateButton';
@@ -53,6 +54,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
   return { props };
 };
 
+Index.Icons = { NavIcon: SvgArrowLeft };
 Index.Blocks = { Modal, CreateButton, CornerContent: UserMenu };
 
 export default Index;

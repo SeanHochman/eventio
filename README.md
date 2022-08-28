@@ -9,3 +9,11 @@ Here you can browse, sign up, or create your own events!
 ## Info
 
 There are still many bugs with this page, but we are working hard to fix them as soon as possible!
+
+## TODO:
+
+- Implement missing pages (ie. profile, edit event)
+- Fix error handling on forms
+- Fix hydration issues
+- Create enums or dictionaries for all text and vars
+- Fix issues with ssr

@@ -10,7 +10,7 @@ const Index: EventioPage<Props> = () => {
   return <HomePage />;
 };
 
-export const getServerSideProps: GetServerSideProps<Props> = async ({}) => {
+export const getServerSideProps: GetServerSideProps<Props> = async () => {
   return { props: { meta: { page: 'home', pageTitle: 'Eventio - Welcome' } } };
 };
 

@@ -11,7 +11,7 @@ export const Sidebar: FC<Props> = () => {
         <div className={styles.quote}>
           {`"${"Great, kid, Don't get cocky."}"`}
         </div>
-        <rect width="12" height="2" fill="#1BE38B" />
+        <span className={styles.rect} />
         <div className={styles.quotePerson}>Han Solo</div>
       </div>
     </div>
