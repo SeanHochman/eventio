@@ -7,7 +7,7 @@ export const setLocalStorage = (key: string, val: string) => {
 
 export const getLocalStorage = (key: string) => {
   if (typeof localStorage !== 'undefined') {
-    localStorage.getItem(key);
+    return localStorage.getItem(key);
   }
   return null;
 };

@@ -32,6 +32,14 @@
     -webkit-text-fill-color: $black;
     caret-color: $black;
   }
+
+  input[type='date']::-webkit-calendar-picker-indicator,
+  input[type='time']::-webkit-calendar-picker-indicator {
+    filter: invert(100%);
+    filter: brightness(70%);
+    font-size: 15px;
+    padding: 0;
+  }
 }
 
 .icon {

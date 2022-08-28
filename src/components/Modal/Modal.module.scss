@@ -1,0 +1,22 @@
+@import '@common/styles/variables.scss';
+
+.wrapper {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  background-color: $white;
+}
+.close {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  font-size: 14px;
+  color: $charcoal;
+  cursor: pointer;
+}

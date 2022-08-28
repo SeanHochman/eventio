@@ -1,30 +1,29 @@
 import { GetServerSideProps } from 'next';
 
 import { SignUpForm } from '@components/Forms/SignUpForm/SignUpForm';
-import { LoginOrSignupLink } from '@components/LoginOrSignupLink/LoginOrSignupLink';
+import { Sidebar } from '@components/Sidebar/Sidebar';
+import { LoginOrSignupLink } from '@dumbComponents/LoginOrSignupLink/LoginOrSignupLink';
 import { EventioPage, PageEnums, PageTitleEnums } from '@types';
 
 type Props = {};
 
 const Index: EventioPage<Props> = (props) => {
-  return (
-    <>
-      <LoginOrSignupLink
-        message="Don't have an account?"
-        href="/signIn"
-        linkText={PageTitleEnums.SIGNIN}
-      />
-      <SignUpForm />
-    </>
-  );
+  return <SignUpForm />;
 };
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
   const props: Props = {
-    meta: { page: PageEnums.SIGNUP, pageTitle: PageTitleEnums.SIGNUP },
-    hasSidebar: true,
+    meta: {
+      page: PageEnums.SIGNUP,
+      pageTitle: `Eventio - ${PageTitleEnums.SIGNUP}`,
+    },
   };
   return { props };
+};
+
+Index.Blocks = {
+  Sidebar,
+  CornerContent: LoginOrSignupLink,
 };
 
 export default Index;

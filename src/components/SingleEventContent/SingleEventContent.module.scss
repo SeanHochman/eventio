@@ -1,0 +1,99 @@
+@import '@common/styles/variables.scss';
+
+.wrapper {
+  display: flex;
+  width: 100%;
+  font-size: 14px;
+}
+
+.event,
+.attendees {
+  background-color: $pureWhite;
+  margin-right: 10px;
+  width: 100%;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.108696);
+  padding: 32px;
+}
+
+.event {
+  flex: 2;
+  background-color: $pureWhite;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.attendees {
+  flex: 1;
+  size: 32px;
+}
+
+.itemWrapper {
+  flex: 0 0 390px;
+  padding: 32px;
+  height: 300px;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.108696);
+  background-color: $pureWhite;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.date {
+  color: $lightGrey;
+  margin-bottom: 20px;
+}
+
+.title {
+  > div:first-of-type {
+    font-size: 45px;
+    color: $charcoal;
+  }
+  > div:last-of-type {
+    padding: 3px 0;
+    color: $grey;
+  }
+}
+
+.att {
+  display: flex;
+  align-items: center;
+
+  > svg {
+    margin-right: 10px;
+  }
+}
+
+.description {
+  height: 100px;
+  padding: 20px 0;
+  color: $grey;
+  text-overflow: ellipsis;
+}
+
+.foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: $grey;
+  bottom: 20px;
+  width: 100%;
+}
+
+.attendeeList {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px 0;
+  font-size: 12px;
+}
+
+.attendeeName {
+  padding: 10px;
+  background-color: $lightGrey;
+  white-space: nowrap;
+  margin: 0 10px 10px 0;
+  border-radius: 20px;
+  color: $darkGreyText;
+}

@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import styles from './Sidebar.module.scss';
 
-export const Sidebar = () => {
+type Props = {};
+
+export const Sidebar: FC<Props> = () => {
   return (
     <div className={styles.sidebarWrapper}>
       <div className={styles.quoteBlock}>

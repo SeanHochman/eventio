@@ -1,13 +1,49 @@
 .outerWrapper {
-  z-index: 1;
+  position: relative;
   display: flex;
 }
-
 .main {
   position: relative;
-  width: 100%;
-  padding: 40px;
+  margin: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+}
+
+.cornerContent {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.innerContent {
+  margin-top: 100px;
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.topMiddleLink {
+  position: absolute;
+  left: calc(50% - 75px);
+  top: 0;
+  width: 150px;
+  height: 40px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  svg {
+    width: 20px;
+    margin-right: 10px;
+  }
+}
+
+.createButtonWrapper {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
 }

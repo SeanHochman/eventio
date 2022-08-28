@@ -11,7 +11,6 @@ type Props = {
 };
 
 export const Tabs: FC<Props> = ({ tabs, activeTabId }) => {
-  console.log(activeTabId);
   return (
     <div className={styles.wrapper}>
       {tabs.map((item) => (

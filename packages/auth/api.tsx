@@ -1,15 +1,15 @@
 import { setLocalStorage } from '@common/utils/localStorage';
+import { parseUser } from '@utils/user/parsers';
 
 export enum LocalStorageKeys {
   refreshToken = 'eventioRefreshToken',
   accessToken = 'eventioAccessToken',
+  user = 'eventioUser',
 }
 
-const emailAuthServerUrl =
-  'https://private-anon-94c36099ca-strvtestprojectv2.apiary-proxy.com/auth/native';
+const emailAuthServerUrl = 'https://testproject-api-v2.strv.com/auth/native';
 
 export const storeTokens = (headers: any) => {
-  console.log('rrrrrrr', headers);
   setLocalStorage(LocalStorageKeys.accessToken, '');
 };
 
@@ -29,7 +29,7 @@ export const login = async ({
   const body = { email, password };
 
   const headers = new Headers();
-  headers.append('Content-Type', 'application/json');
+  headers.append('Content-Type', 'application/json; charset=UTF-8');
   headers.append('APIKey', apiKey);
 
   const res = await fetch(emailAuthServerUrl, {
@@ -39,19 +39,16 @@ export const login = async ({
   });
 
   if (res.status === 200 && res) {
-    console.log('res headers', res.headers.get('refresh-token'));
-    const bla = await res.json();
-    console.log(bla);
+    const accessToken = res.headers.get('Authorization');
+    const refreshToken = res.headers.get('Refresh-Token');
+    if (accessToken && refreshToken) {
+      setLocalStorage(LocalStorageKeys.accessToken, accessToken);
+      setLocalStorage(LocalStorageKeys.refreshToken, refreshToken);
+    }
+    const user = await res.json().then((user) => parseUser(user));
 
-    // TODO: store in local storage
-
-    // Prevent field edit complete event from firing at the same time with the login form when already saved credentials are used.
-    setTimeout(() => onSuccess(res), 500);
+    onSuccess({ user, accessToken });
   } else {
-    console.log('baddddd');
-    const arg = await res.json();
-    console.log(arg);
-    // Prevent field edit complete event from firing at the same time with the login form when already saved credentials are used.
-    setTimeout(() => onError(res), 500);
+    onError(res);
   }
 };

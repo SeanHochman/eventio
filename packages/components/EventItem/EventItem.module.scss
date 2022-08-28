@@ -10,10 +10,13 @@
   flex-direction: column;
   justify-content: space-between;
   font-size: 14px;
+  position: relative;
+  cursor: pointer;
 }
 
 .date {
   color: $lightGrey;
+  margin-bottom: 20px;
 }
 
 .title {
@@ -27,6 +30,10 @@
 }
 
 .attendees {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  height: 40px;
   display: flex;
   align-items: center;
 
@@ -49,4 +56,11 @@
   color: $grey;
   bottom: 20px;
   width: 100%;
+}
+
+.joinButton {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
 }

@@ -5,7 +5,7 @@ import styles from './Button.module.scss';
 
 type Props = {
   text: string;
-  type?: 'primary' | 'secondary' | 'tertiary';
+  type?: 'primary' | 'secondary' | 'tertiary' | string;
   htmlType?: 'button' | 'submit' | 'reset';
   testId?: string;
   href?: string;

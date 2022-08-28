@@ -1,12 +1,9 @@
 import Head from 'next/head';
 import React, { FC } from 'react';
 
-import { CommonProps } from '@types';
+type HeadContentProps = { pageTitle: string };
 
-type HeadContentProps = CommonProps;
-export const HeadContent: FC<HeadContentProps> = ({
-  meta: { pageTitle = 'page' },
-}) => {
+export const HeadContent: FC<HeadContentProps> = ({ pageTitle }) => {
   return (
     <Head>
       {pageTitle && <title key="title">{pageTitle}</title>}

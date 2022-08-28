@@ -1,0 +1,41 @@
+@import '@common/styles/variables.scss';
+
+.outerWrapper {
+  overflow: hidden;
+  position: relative;
+  height: 150px;
+}
+
+.wrapper {
+  position: absolute;
+  background-color: $pureWhite;
+  width: 100%;
+  border-radius: 5px;
+  margin-top: 10px;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.108696);
+  color: $darkGreyText;
+  font-size: 14px;
+  overflow: hidden;
+  top: -150px;
+  transition: top 0.3s ease-in;
+  z-index: 999;
+
+  &:global(.isOpen) {
+    top: 0;
+  }
+}
+
+.menuItem {
+  padding: 10px;
+  border-bottom: 1px solid $lightGrey;
+  cursor: pointer;
+
+  a {
+    display: block;
+    width: 100%;
+  }
+
+  &:last-of-type {
+    border-bottom: none;
+  }
+}

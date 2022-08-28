@@ -35,21 +35,21 @@
   }
 
   :global(.secondary) {
-    background-color: $red;
+    background-color: $lightGrey;
     color: $white;
-    border: 1px solid $red;
+    border: 1px solid $lightGrey;
 
     &:hover {
-      background-color: $redHover;
+      background-color: $charcoal;
     }
   }
 
   &:global(.tertiary) {
-    background-color: $buttonGrey;
-    color: $greyText;
+    background-color: $red;
+    color: $white;
 
     &:hover {
-      background-color: $buttonGreyHover;
+      background-color: $redHover;
     }
   }
 

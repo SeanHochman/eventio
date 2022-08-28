@@ -6,7 +6,7 @@ import { FormHeader } from '@dumbComponents/FormHeader/FormHeader';
 
 import styles from '../Forms.module.scss';
 import { InputItem } from '../InputItem/InputItem';
-import { useHandleForms } from '../hooks/useHandleForms';
+import { useHandleLogin } from '../hooks/useHandleLogin';
 
 const BUTTON_TEXT = 'Sign up';
 
@@ -18,7 +18,7 @@ export const SignUpForm = () => {
     isPasswordVisible,
     togglePasswordVisibility,
     onSubmit,
-  } = useHandleForms();
+  } = useHandleLogin();
 
   return (
     <div className={styles.formWrapper}>

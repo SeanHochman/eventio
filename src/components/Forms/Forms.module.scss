@@ -3,8 +3,16 @@
 .formWrapper {
   width: 480px;
   padding: 10px;
+  background-color: $pureWhite;
+  padding: 40px;
 }
 
 .submit {
   margin-top: 20px;
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 }

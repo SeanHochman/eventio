@@ -1,48 +1,45 @@
 import React, { FC } from 'react';
 
-import { TabType } from '@common/types/common';
+import { eventFilterTabs } from '@common/types/common';
 import { EventItem, EventItemType } from '@dumbComponents/EventItem/EventItem';
 import { Loader } from '@dumbComponents/Loader/Loader';
+import { NoEventsMessage } from '@dumbComponents/NoEventsMessage/NoEventsMessage';
 import { Tabs } from '@dumbComponents/Tabs/Tabs';
+import { useAttendEvent } from '@hooks/fetchers/useEvents';
 
 import styles from './EventPage.module.scss';
-
-const filterItems: TabType[] = [
-  {
-    id: 'all',
-    title: 'All Events',
-    href: '/events',
-  },
-  {
-    id: 'future',
-    title: 'Future Events',
-    href: '/events/future',
-  },
-  {
-    id: 'past',
-    title: 'Past Events',
-    href: '/events/past',
-  },
-];
 
 type Props = {
   activeTabId: string;
   events?: EventItemType[];
   isLoading: boolean;
+  page: string;
 };
 
-export const EventPage: FC<Props> = ({ activeTabId, events, isLoading }) => {
+export const EventPage: FC<Props> = ({
+  activeTabId,
+  events,
+  isLoading,
+  page,
+}) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.navBar}>
-        <Tabs tabs={filterItems} activeTabId={activeTabId} />
-        <div className={styles.listOptions}>options</div>
+        <Tabs tabs={eventFilterTabs} activeTabId={activeTabId} />
+        {!!events?.length && <div className={styles.listOptions}>options</div>}
       </div>
-      {isLoading && !events?.length && <Loader />}
-      {!!events?.length && (
+      {isLoading && <Loader />}
+      {!isLoading && !events?.length && <NoEventsMessage />}
+
+      {!!events?.length && !isLoading && (
         <div className={styles.eventsWrapper}>
           {events.map((event, i) => (
-            <EventItem key={i} {...event} />
+            <EventItem
+              key={i}
+              event={event}
+              useAttendEvent={useAttendEvent}
+              page={page}
+            />
           ))}
         </div>
       )}

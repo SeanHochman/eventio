@@ -1,11 +1,13 @@
 import React, { FC } from 'react';
 
-import { Sidebar } from '@components/Sidebar/Sidebar';
+import { useAuth } from '@auth/hooks';
+import { useUi } from '@common/context/UiContext/utils';
 import { HeadContent } from '@components/document/HeadContent/HeadContent';
 import { useWindowWidth } from '@hooks/useWindowWidth';
-import { CommonProps, EventioPage } from 'types/pages';
+import { CommonProps, EventioPage } from '@types';
 
 import styles from './Layout.module.scss';
+import { useLayout } from './useLayout';
 
 type Props = {
   Component: EventioPage<CommonProps>;
@@ -13,17 +15,61 @@ type Props = {
 };
 
 export const Layout: FC<Props> = ({ Component, props }) => {
-  const { hasSidebar = false, meta } = props;
+  const { userInfo } = useAuth();
+  const { currentModal } = useUi();
+
+  const { meta, navLinks } = props;
   const { isDesktopWidth } = useWindowWidth();
+
+  const {
+    navItems,
+    loginOrSignUpInfo,
+    menuItems,
+    handleSetCreateEventModal,
+    shouldRenderUserMenu,
+    shouldRenderSignIn,
+  } = useLayout({ page: meta.page, navLinks });
+
   return (
     <>
-      {meta && <HeadContent meta={meta} />}
+      {meta.pageTitle && <HeadContent pageTitle={meta.pageTitle} />}
+      {Component.Blocks?.Modal && currentModal && <Component.Blocks.Modal />}
       <div className={styles.outerWrapper}>
-        {hasSidebar && isDesktopWidth && <Sidebar />}
+        {Component.Blocks?.Sidebar && isDesktopWidth && (
+          <Component.Blocks.Sidebar />
+        )}
         <div className={styles.main}>
-          <Component {...props} />
+          {Component.Blocks?.TopNavigation && navLinks && (
+            <div className={styles.topMiddleLink}>
+              <Component.Blocks.TopNavigation links={navItems} />
+            </div>
+          )}
+
+          {Component.Blocks?.CornerContent && (
+            <div className={styles.cornerContent}>
+              {(shouldRenderUserMenu || shouldRenderSignIn) && (
+                <Component.Blocks.CornerContent
+                  message={loginOrSignUpInfo?.message}
+                  href={loginOrSignUpInfo?.link}
+                  linkText={loginOrSignUpInfo?.linkText}
+                  userInfo={userInfo}
+                  menuItems={menuItems}
+                />
+              )}
+            </div>
+          )}
+          <div className={styles.innerContent}>
+            <Component {...props} />
+          </div>
         </div>
       </div>
+      {Component.Blocks?.CreateButton && (
+        <div className={styles.createButtonWrapper}>
+          <Component.Blocks.CreateButton
+            openCreateModal={handleSetCreateEventModal}
+          />
+        </div>
+      )}
     </>
   );
 };
