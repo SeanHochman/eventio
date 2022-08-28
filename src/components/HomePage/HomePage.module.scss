@@ -1,0 +1,18 @@
+@import '@common/styles/variables.scss';
+
+.wrapper {
+  padding: 32px;
+  background-color: $pureWhite;
+  color: $charcoal;
+  font-size: 40px;
+}
+
+.links {
+  display: flex;
+  justify-content: space-around;
+  font-size: 14px;
+  margin-top: 32px;
+  a {
+    color: $lightGrey;
+  }
+}

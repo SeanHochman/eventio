@@ -47,17 +47,17 @@ export const Layout: FC<Props> = ({ Component, props }) => {
 
           {Component.Blocks?.CornerContent && (
             <div className={styles.cornerContent}>
-              {(shouldRenderUserMenu || shouldRenderSignIn) && (
+              {shouldRenderSignIn && (
                 <Component.Blocks.CornerContent
-                  {...(shouldRenderSignIn && {
-                    message: loginOrSignUpInfo?.message,
-                    href: loginOrSignUpInfo?.link,
-                    linkText: loginOrSignUpInfo?.linkText,
-                  })}
-                  {...(shouldRenderUserMenu && {
-                    userInfo,
-                    menuItems,
-                  })}
+                  message={loginOrSignUpInfo?.message}
+                  href={loginOrSignUpInfo?.link}
+                  linkText={loginOrSignUpInfo?.linkText}
+                />
+              )}
+              {shouldRenderUserMenu && (
+                <Component.Blocks.CornerContent
+                  userInfo={userInfo}
+                  menuItems={menuItems}
                 />
               )}
             </div>
