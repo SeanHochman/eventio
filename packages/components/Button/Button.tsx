@@ -28,6 +28,7 @@ export const Button: FC<Props> = ({
   const className = classnames(styles.btn, type, size, classNames, {
     isDisabled,
   });
+
   return (
     <button
       disabled={isDisabled}

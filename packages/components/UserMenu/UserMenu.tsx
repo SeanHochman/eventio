@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useMemo, useRef, useState } from 'react';
+import React, { FC, useCallback, useRef, useState } from 'react';
 
 import { useClickOutside } from '@common/hooks/useClickOutside';
 import { UserType } from '@common/types/user';
@@ -31,12 +31,6 @@ export const UserMenu: FC<Props> = ({ userInfo, menuItems = [] }) => {
     disabled: !isDropdownOpen,
   });
 
-  const items = useMemo(() => {
-    return menuItems.map((item) => {
-      return item;
-    });
-  }, [menuItems]);
-
   return (
     <div className={styles.wrapper} ref={dropdownRef}>
       <button
@@ -49,7 +43,7 @@ export const UserMenu: FC<Props> = ({ userInfo, menuItems = [] }) => {
       </button>
 
       <DropdownMenu
-        menuItems={items}
+        menuItems={menuItems}
         isDropdownOpen={isDropdownOpen}
         handleCloseDropdown={handleCloseDropdown}
       />

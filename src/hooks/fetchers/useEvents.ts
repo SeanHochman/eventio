@@ -49,7 +49,7 @@ export const useGetAllEvents = (
 export const useGetSingleEvent = (
   page: string,
   eventId: string,
-  initialEvent?: APIEventType
+  initialEvent?: EventItemType
 ): { event: EventItemType | undefined; isLoading: boolean } => {
   const { userInfo } = useAuth();
   const fetcher = useCallback(
@@ -60,7 +60,7 @@ export const useGetSingleEvent = (
     [eventId, userInfo]
   );
   const { data: event, isValidating } = useSwr(page, fetcher, {
-    fallbackData: initialEvent ? parseEvent(initialEvent, userInfo) : undefined,
+    fallbackData: initialEvent,
   });
 
   return {
@@ -82,7 +82,7 @@ export const useAttendEvent = ({
   const handleJoinEvent = useCallback(() => {
     if (event) {
       mutate(
-        page,
+        `/${page}`,
         joinOrLeaveEvent({ eventId: event.id, type: 'join' }).then((res) =>
           res?.ok ? setIsJoined(true) : setIsJoined(false)
         )
@@ -93,7 +93,7 @@ export const useAttendEvent = ({
   const handleLeaveEvent = useCallback(async () => {
     if (event) {
       mutate(
-        page,
+        `/${page}`,
         joinOrLeaveEvent({ eventId: event.id, type: 'leave' }).then((res) =>
           res?.ok ? setIsJoined(false) : setIsJoined(true)
         )

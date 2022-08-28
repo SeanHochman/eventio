@@ -1,9 +1,11 @@
 import React, { FC } from 'react';
 
-import SvgLittleMan from '@common/svgs/littleMan';
-import { Button } from '@dumbComponents/Button/Button';
+import SvgTrash from '@common/svgs/trash';
 import { EventItemType } from '@dumbComponents/EventItem/EventItem';
 
+import { Attendees } from './Attendees';
+import { Edit } from './Edit';
+import { Info } from './Info';
 import styles from './SingleEventContent.module.scss';
 
 type Props = {
@@ -12,6 +14,7 @@ type Props = {
   handleJoinEvent: any;
   handleLeaveEvent: any;
   handleDeleteEvent: any;
+  isEditPage?: boolean;
 };
 
 export const SingleEventContent: FC<Props> = ({
@@ -20,51 +23,31 @@ export const SingleEventContent: FC<Props> = ({
   handleJoinEvent,
   handleLeaveEvent,
   handleDeleteEvent,
+  isEditPage,
 }) => {
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.event}>
-        <div className={styles.date}>{event.date}</div>
-        <div className={styles.title}>
-          <div>{event.title}</div>
-          <div className={styles.owner}>{event.ownerName}</div>
-        </div>
-
-        <div className={styles.description}>{event.description}</div>
-        <span className={styles.foot}>
-          <div className={styles.att}>
-            <SvgLittleMan />
-            {event.attendees}
-          </div>
-          {!event.isUserEvent ? (
-            <Button
-              type={isJoined ? 'secondary' : 'primary'}
-              size="small"
-              text={isJoined ? 'Leave' : 'Join'}
-              isDisabled={!handleJoinEvent}
-              onClick={isJoined ? handleLeaveEvent : handleJoinEvent}
-            />
-          ) : (
-            <Button
-              type="tertiary"
-              text="Delete"
-              onClick={handleDeleteEvent}
-              size="small"
-            />
-          )}
-        </span>
+    <div className={styles.outerWrapper}>
+      <div className={styles.top}>
+        <span>DETAIL EVENT: {event.id} </span>
+        {event.isUserEvent && (
+          <span className={styles.deleteEvent} onClick={handleDeleteEvent}>
+            <SvgTrash />
+            <span>DELETE EVENT</span>
+          </span>
+        )}
       </div>
-      <div className={styles.attendees}>
-        Attendees
-        <div className={styles.attendeeList}>
-          {event.attendeeList.map((person) => {
-            return (
-              <span key={person} className={styles.attendeeName}>
-                {person}
-              </span>
-            );
-          })}
-        </div>
+      <div className={styles.wrapper}>
+        {isEditPage ? (
+          <Edit event={event} handleDeleteEvent={handleDeleteEvent} />
+        ) : (
+          <Info
+            event={event}
+            isJoined={isJoined}
+            handleJoinEvent={handleJoinEvent}
+            handleLeaveEvent={handleLeaveEvent}
+          />
+        )}
+        <Attendees attendeeList={event.attendeeList} />
       </div>
     </div>
   );

@@ -5,7 +5,6 @@ type Props = {
   href?: string;
   children: ReactNode;
   className?: string;
-
   style?: CSSProperties;
   target?: string;
 };

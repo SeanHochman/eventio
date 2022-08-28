@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 
@@ -10,6 +11,7 @@ import { parseEvent } from '@utils/events/parsers';
 
 export const useCreateEvent = () => {
   const { setCurrentModal } = useUi();
+  const { push } = useRouter();
   const { mutate } = useGetAllEvents();
 
   const { register, handleSubmit, formState, getValues, setError, reset } =
@@ -24,7 +26,8 @@ export const useCreateEvent = () => {
       );
     });
     setCurrentModal(undefined);
-  }, [mutate, setCurrentModal]);
+    push('/events');
+  }, [mutate, push, setCurrentModal]);
 
   const onCreateError = useCallback(() => {
     setError('submit', { message: 'Failed to create event' });

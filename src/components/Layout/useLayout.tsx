@@ -26,13 +26,13 @@ export const useLayout = ({
       if (page === PageEnums.SIGNIN) {
         return {
           message: "Don't have an account? ",
-          link: `/${PageEnums.SIGNUP}`,
+          link: `/sign-up`,
           linkText: PageTitleEnums.SIGNUP,
         };
       } else if (page === PageEnums.SIGNUP) {
         return {
           message: 'Already have an account?',
-          link: `/${PageEnums.SIGNIN}`,
+          link: `/sign-in`,
           linkText: PageTitleEnums.SIGNIN,
         };
       }
@@ -45,9 +45,11 @@ export const useLayout = ({
       if (item.id === 'createEvent')
         return { ...item, onClick: handleSetCreateEventModal };
       if (item.id === 'logout') return { ...item, onClick: handleLogout };
+      if (item.id === 'profile')
+        return { ...item, href: `/profile/${userInfo?.id}` };
       else return item;
     });
-  }, [handleLogout, handleSetCreateEventModal]);
+  }, [handleLogout, handleSetCreateEventModal, userInfo?.id]);
 
   const navItems = useMemo(() => {
     return navLinks?.map((item) => ({ ...item, icon: SvgArrowLeft }));

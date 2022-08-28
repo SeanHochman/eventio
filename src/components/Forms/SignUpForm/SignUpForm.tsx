@@ -1,24 +1,21 @@
 import React from 'react';
 
-import { emailValidation, passwordValidation } from '@common/types/forms';
+import {
+  emailValidation,
+  passwordValidation,
+  textValidation,
+} from '@common/types/forms';
 import { Button } from '@dumbComponents/Button/Button';
 import { FormHeader } from '@dumbComponents/FormHeader/FormHeader';
 
 import styles from '../Forms.module.scss';
 import { InputItem } from '../InputItem/InputItem';
-import { useHandleLogin } from '../hooks/useHandleLogin';
+import { useCreateUser } from '../hooks/useCreateUser';
 
 const BUTTON_TEXT = 'Sign up';
 
 export const SignUpForm = () => {
-  const {
-    register,
-    handleSubmit,
-    formState,
-    isPasswordVisible,
-    togglePasswordVisibility,
-    onSubmit,
-  } = useHandleLogin();
+  const { register, handleSubmit, formState, onSubmit } = useCreateUser();
 
   return (
     <div className={styles.formWrapper}>
@@ -31,18 +28,18 @@ export const SignUpForm = () => {
           register={register}
           name="firstName"
           errors={formState.errors}
-          validationOptions={emailValidation}
+          validationOptions={textValidation}
           type="text"
-          errorText={'Please enter valid email'}
+          errorText={'Please enter valid name'}
           placeholder={'First name'}
         />
         <InputItem
           register={register}
           name="lastName"
           errors={formState.errors}
-          validationOptions={emailValidation}
+          validationOptions={textValidation}
           type="text"
-          errorText={'Please enter valid email'}
+          errorText={'Please enter valid name'}
           placeholder={'Last name'}
         />
         <InputItem
@@ -58,21 +55,19 @@ export const SignUpForm = () => {
         <InputItem
           register={register}
           name="password"
+          type="password"
           validationOptions={passwordValidation}
           errors={formState.errors}
-          type={isPasswordVisible ? 'text' : 'password'}
           errorText={`Please enter valid password`}
-          onIconClick={togglePasswordVisibility}
           placeholder={`Password`}
         />
         <InputItem
           register={register}
+          type="password"
           name="repeatPassword"
           validationOptions={passwordValidation}
           errors={formState.errors}
-          type={isPasswordVisible ? 'text' : 'password'}
           errorText={`passwords do not match`}
-          onIconClick={togglePasswordVisibility}
           placeholder={`Repeat Password`}
         />
 

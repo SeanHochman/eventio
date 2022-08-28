@@ -26,6 +26,8 @@ export enum PageEnums {
   FUTURE = 'future',
   PAST = 'past',
   CREATE = 'create',
+  PROFILE = 'profile',
+  EDIT = 'edit',
 }
 
 export enum PageTitleEnums {
@@ -35,4 +37,6 @@ export enum PageTitleEnums {
   FUTUREEVENTS = 'Future Events',
   PASTEVENTS = 'Past Events',
   CREATE = 'Create Event',
+  PROFILE = 'Profile Page',
+  EDIT = 'EDIT EVENT',
 }

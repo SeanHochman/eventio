@@ -41,7 +41,7 @@ export const EventItem: FC<Props> = ({ event, useAttendEvent, page }) => {
 
   const buttonInfo = useMemo(() => {
     if (isUserEvent)
-      return { type: 'secondary', text: 'edit', href: `/events/${id}` };
+      return { type: 'secondary', text: 'edit', href: `/events/${id}/edit` };
     if (isJoined)
       return { type: 'tertiary', text: 'Leave', onClick: handleLeaveEvent };
     if (!isJoined)
@@ -73,7 +73,7 @@ export const EventItem: FC<Props> = ({ event, useAttendEvent, page }) => {
             size="small"
             text={buttonInfo?.text || ''}
             isDisabled={!handleJoinEvent}
-          />
+          ></Button>
         </Link>
       ) : (
         <Button

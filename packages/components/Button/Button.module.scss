@@ -17,6 +17,7 @@
   position: relative;
   z-index: 1;
   transition: background-color 0.2s;
+  text-transform: uppercase;
 
   &:global(.primary) {
     background-color: $limeGreen;
@@ -34,9 +35,9 @@
     }
   }
 
-  :global(.secondary) {
+  &:global(.secondary) {
     background-color: $lightGrey;
-    color: $white;
+    color: $darkGreyText;
     border: 1px solid $lightGrey;
 
     &:hover {

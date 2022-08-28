@@ -38,7 +38,7 @@ export const AuthProvider: FC<Props> = ({ children, authUrl, baseUrl }) => {
     setAccessToken(undefined);
     setIsLoggedIn(false);
     removeResponse();
-    push('/signIn');
+    push('/sign-in');
   }, [push]);
 
   const validateAccessToken = useCallback(() => {
@@ -48,11 +48,8 @@ export const AuthProvider: FC<Props> = ({ children, authUrl, baseUrl }) => {
         if (user) setUserInfo(JSON.parse(user));
         setIsLoggedIn(true);
       }
-      if (status === 'tokensExpired' || status === 'networkError') {
-        handleLogout();
-      }
     });
-  }, [authUrl, handleLogout]);
+  }, [authUrl]);
 
   // On Mount or on access token change (in case of registration)
   useEffect(validateAccessToken, [accessToken, validateAccessToken]);

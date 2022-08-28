@@ -7,9 +7,16 @@ export enum LocalStorageKeys {
   user = 'eventioUser',
 }
 
-const emailAuthServerUrl = 'https://testproject-api-v2.strv.com/auth/native';
+export type APINewUserType = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+};
 
-export const storeTokens = (headers: any) => {
+const authServerUrl = 'https://testproject-api-v2.strv.com';
+
+export const storeTokens = () => {
   setLocalStorage(LocalStorageKeys.accessToken, '');
 };
 
@@ -32,7 +39,7 @@ export const login = async ({
   headers.append('Content-Type', 'application/json; charset=UTF-8');
   headers.append('APIKey', apiKey);
 
-  const res = await fetch(emailAuthServerUrl, {
+  const res = await fetch(`${authServerUrl}/auth/native`, {
     method: 'POST',
     headers,
     body: JSON.stringify(body),
@@ -48,6 +55,40 @@ export const login = async ({
     const user = await res.json().then((user) => parseUser(user));
 
     onSuccess({ user, accessToken });
+  } else {
+    onError(res);
+  }
+};
+
+export const createUser = async ({
+  user,
+  onError,
+  onSuccess,
+  apiKey,
+}: {
+  user: APINewUserType;
+  apiKey: string;
+  onSuccess: (response: any) => void;
+  onError: (response: any) => void;
+}) => {
+  const headers = new Headers();
+  headers.append('Content-Type', 'application/json');
+  headers.append('APIKey', apiKey);
+
+  const res = await fetch(`${authServerUrl}/users`, {
+    method: 'POST',
+    headers,
+    body: JSON.stringify(user),
+  });
+
+  if (res.ok) {
+    await login({
+      email: user.email,
+      password: user.password,
+      apiKey,
+      onSuccess,
+      onError,
+    });
   } else {
     onError(res);
   }

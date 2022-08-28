@@ -1,9 +1,37 @@
 @import '@common/styles/variables.scss';
 
+.outerWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 .wrapper {
   display: flex;
   width: 100%;
   font-size: 14px;
+}
+
+.top {
+  margin: 0 0 40px 0;
+  padding-right: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  color: $darkGreyText;
+  font-size: 14px;
+
+  .deleteEvent {
+    color: red;
+    cursor: pointer;
+    > span {
+      margin-left: 10px;
+    }
+
+    &:hover {
+      color: $redHover;
+    }
+  }
 }
 
 .event,

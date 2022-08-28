@@ -26,7 +26,7 @@ export const EventPage: FC<Props> = ({
     <div className={styles.wrapper}>
       <div className={styles.navBar}>
         <Tabs tabs={eventFilterTabs} activeTabId={activeTabId} />
-        {!!events?.length && <div className={styles.listOptions}>options</div>}
+        {/* TODO: add view options here */}
       </div>
       {isLoading && <Loader />}
       {!isLoading && !events?.length && <NoEventsMessage />}

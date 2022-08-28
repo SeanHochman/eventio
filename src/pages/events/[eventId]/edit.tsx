@@ -7,7 +7,7 @@ import { EventItemType } from '@dumbComponents/EventItem/EventItem';
 import { Loader } from '@dumbComponents/Loader/Loader';
 import { TopNav } from '@dumbComponents/TopNav/TopNav';
 import { UserMenu } from '@dumbComponents/UserMenu/UserMenu';
-import { useAttendEvent, useGetSingleEvent } from '@hooks/fetchers/useEvents';
+import { useGetSingleEvent, useAttendEvent } from '@hooks/fetchers/useEvents';
 import { CommonProps, EventioPage, PageEnums, PageTitleEnums } from '@types';
 import { getEvent } from '@utils/events/api';
 import { parseEvent } from '@utils/events/parsers';
@@ -57,8 +57,8 @@ export const getServerSideProps: GetServerSideProps<Props, Params> = async ({
 
   const props: Props = {
     meta: {
-      page: `${PageEnums.EVENTS}-${eventId}`,
-      pageTitle: `Eventio - ${PageTitleEnums.EVENTS}`,
+      page: `${PageEnums.EDIT}-${eventId}`,
+      pageTitle: `Eventio - ${PageTitleEnums.EDIT}`,
     },
     eventId,
     navLinks: [{ href: '/events', text: 'Back to events' }],
