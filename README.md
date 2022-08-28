@@ -21,3 +21,4 @@ There are still many bugs with this page, but we are working hard to fix them as
 - Fix issues with ssr
 - Add mobile views/styles
 - Implement error pages
+- Fix sign in / sign up button sometimes not showing
